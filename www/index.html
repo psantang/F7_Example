@@ -9,9 +9,14 @@
             * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
             * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
                 * Enable inline JS: add 'unsafe-inline' to default-src
-        -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *">
 
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *">
+-->
+    <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' data: ; media-src *" />
+
+<!--
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' gap://ready file://* *; style-src 'self' 'unsafe-inline'; script-src http://www.okeeski.com 'self' 'unsafe-inline' 'unsafe-eval'; img-src 'self' data: ; connect-src http://www.okeeski.com">
+-->
     <!-- Required meta tags-->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
@@ -29,6 +34,7 @@
 
     <link rel="stylesheet" href="lib/framework7/css/framework7.ios.min.css">
     <link rel="stylesheet" href="lib/framework7/css/framework7.ios.colors.min.css">
+    <link rel="stylesheet" href="lib/framework7/css/framework7-icons.css">
 
     <link rel="stylesheet" href="css/styles.css">
 </head>
@@ -66,6 +72,11 @@
             </div>
             <!-- Pages container, because we use fixed-through navbar and toolbar, it has additional appropriate classes-->
             <div class="pages navbar-through toolbar-through">
+
+
+
+
+
                 <!-- Page, "data-page" contains page name -->
                 <div data-page="index" class="page">
                     <!-- Scrollable page content -->
@@ -74,9 +85,31 @@
                             <p>Page content goes here</p>
                             <!-- Link to another page -->
                             <a href="about.html">About app</a>
+                            <div>
+                              <a href="#surface">Surface Link</a>
+                            </div>
                         </div>
                     </div>
                 </div>
+
+
+
+
+
+                <!-- Page, "data-page" contains page name -->
+                <div data-page="surface" class="page cached">
+                    <!-- Scrollable page content -->
+                    <div class="page-content">
+                        <div class="content-block">
+                            <p>Surface page is here!</p>
+                            <!-- Link to another page -->
+                            <a href="#index">Back to Index/Home</a>
+                        </div>
+                    </div>
+                </div>
+
+
+
             </div>
             <!-- Bottom Toolbar-->
             <div class="toolbar">
